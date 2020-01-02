@@ -38,7 +38,7 @@ export default class App extends Component {
     return (
       <>
         <Navbar></Navbar>
-        <div className="container mx-auto px-12 mt-20">
+        <div className="container mx-auto px-12 mt-24">
           <AddTask onClick={e => this.handleAddTask(e)}></AddTask>
           <Kanban tasks={this.state.tasks}></Kanban>
         </div>

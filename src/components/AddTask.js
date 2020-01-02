@@ -17,7 +17,7 @@ export default class AddTask extends Component {
   }
 
   handleOnClick() {
-    this.props.onClick(this.state.value);
+    if (this.state.value) this.props.onClick(this.state.value);
     this.setState({ value: "" });
   }
 
@@ -29,10 +29,10 @@ export default class AddTask extends Component {
           onChange={e => this.handleChange(e)}
           onKeyUp={e => this.handleOnKeyUp(e)}
           placeholder="New task"
-          className="border-2 focus:shadow-md border-indigo-300 hover:border-indigo-400 focus:border-indigo-400 rounded px-3 py-1"
+          className="border-2 focus:shadow-inner outline-none border-indigo-300 hover:border-indigo-400 focus:border-indigo-400 rounded px-3 py-1"
         ></input>
         <button
-          className="ml-6 px-2 py-1 rounded bg-indigo-600 text-white"
+          className="ml-6 px-2 py-1 focus:shadow-md hover:shadow-md focus:outline-none rounded bg-indigo-600 hover:bg-indigo-500 focus:bg-indigo-500 text-white"
           onClick={() => this.handleOnClick()}
         >
           Add Task
