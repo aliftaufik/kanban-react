@@ -3,22 +3,27 @@ import Task from "./Task";
 
 export default class Section extends Component {
   render() {
-    const status = this.props.tasks[0].status;
+    const title = this.props.title;
     const txtColor =
-      status === "todo"
+      title === "TODO"
         ? "text-indigo-400"
-        : status === "doing"
+        : title === "DOING"
         ? "text-indigo-500"
-        : status === "done"
+        : title === "DONE"
         ? "text-indigo-400"
         : "text-gray-500";
     return (
       <>
-        <h3 className={txtColor + " text-center font-bold text-xl"}>
-          {this.props.title}
-        </h3>
+        <h3 className={txtColor + " text-center font-bold text-xl"}>{title}</h3>
         {this.props.tasks.map(task => {
-          return <Task task={task} key={task.id}></Task>;
+          return (
+            <Task
+              task={task}
+              key={task.id}
+              onTaskForward={() => this.props.onTaskForward(task.id)}
+              onTaskBackward={() => this.props.onTaskBackward(task.id)}
+            ></Task>
+          );
         })}
       </>
     );

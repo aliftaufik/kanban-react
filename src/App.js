@@ -34,13 +34,24 @@ export default class App extends Component {
     });
   }
 
+  handleMoveTask(id, status) {
+    const tasks = this.state.tasks.slice();
+    const index = tasks.findIndex(task => id === task.id);
+    tasks[index].status = status;
+
+    this.setState({ tasks });
+  }
+
   render() {
     return (
       <>
         <Navbar></Navbar>
         <div className="container mx-auto px-12 mt-24">
-          <AddTask onClick={e => this.handleAddTask(e)}></AddTask>
-          <Kanban tasks={this.state.tasks}></Kanban>
+          <AddTask onClick={title => this.handleAddTask(title)}></AddTask>
+          <Kanban
+            tasks={this.state.tasks}
+            onMoveTask={(id, status) => this.handleMoveTask(id, status)}
+          ></Kanban>
         </div>
       </>
     );

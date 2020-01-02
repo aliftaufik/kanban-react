@@ -33,13 +33,13 @@ export default class Task extends Component {
             />
           </button>
           <div className="w-1/5 flex justify-between text-2xl">
-            <button>
+            <button onClick={this.props.onTaskBackward}>
               <FontAwesomeIcon
                 icon={faArrowAltCircleLeft}
                 className="hover:text-white"
               />
             </button>
-            <button>
+            <button onClick={this.props.onTaskForward}>
               <FontAwesomeIcon
                 icon={faArrowAltCircleRight}
                 className="hover:text-white"
