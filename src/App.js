@@ -10,19 +10,19 @@ export default class App extends Component {
     this.state = {
       tasks: [
         {
-          id: 1,
+          id: uuidv4(),
           status: "todo",
-          title: "abcde"
+          title: "This is just a sample task"
         },
         {
-          id: 2,
+          id: uuidv4(),
           status: "doing",
-          title: "bcdef"
+          title: "Feel free to pass it around"
         },
         {
-          id: 3,
+          id: uuidv4(),
           status: "done",
-          title: "cdefg"
+          title: "Or just remove it entirely"
         }
       ]
     };
@@ -42,6 +42,16 @@ export default class App extends Component {
     this.setState({ tasks });
   }
 
+  handleRemoveTask(id) {
+    const tasks = this.state.tasks.slice();
+    tasks.splice(
+      tasks.findIndex(task => task.id === id),
+      1
+    );
+
+    this.setState({ tasks });
+  }
+
   render() {
     return (
       <>
@@ -51,6 +61,7 @@ export default class App extends Component {
           <Kanban
             tasks={this.state.tasks}
             onMoveTask={(id, status) => this.handleMoveTask(id, status)}
+            onRemoveTask={id => this.handleRemoveTask(id)}
           ></Kanban>
         </div>
       </>

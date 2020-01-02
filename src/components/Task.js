@@ -26,7 +26,7 @@ export default class Task extends Component {
       >
         <h3 className="text-center text-xl">{this.props.task.title}</h3>
         <div className="flex justify-between">
-          <button>
+          <button onClick={this.props.onTaskRemove}>
             <FontAwesomeIcon
               icon={faTrash}
               className="hover:text-red-600 text-lg"

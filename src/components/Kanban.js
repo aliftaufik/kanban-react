@@ -11,6 +11,7 @@ export default class Kanban extends Component {
             tasks={this.props.tasks.filter(task => task.status === "todo")}
             onTaskForward={id => this.props.onMoveTask(id, "doing")}
             onTaskBackward={id => this.props.onMoveTask(id, "todo")}
+            onTaskRemove={this.props.onRemoveTask}
           ></Section>
         </div>
         <div className="w-1/3 px-3">
@@ -19,6 +20,7 @@ export default class Kanban extends Component {
             tasks={this.props.tasks.filter(task => task.status === "doing")}
             onTaskForward={id => this.props.onMoveTask(id, "done")}
             onTaskBackward={id => this.props.onMoveTask(id, "todo")}
+            onTaskRemove={this.props.onRemoveTask}
           ></Section>
         </div>
         <div className="w-1/3 pl-3">
@@ -27,6 +29,7 @@ export default class Kanban extends Component {
             tasks={this.props.tasks.filter(task => task.status === "done")}
             onTaskForward={id => this.props.onMoveTask(id, "done")}
             onTaskBackward={id => this.props.onMoveTask(id, "doing")}
+            onTaskRemove={this.props.onRemoveTask}
           ></Section>
         </div>
       </div>

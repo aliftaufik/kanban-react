@@ -22,6 +22,7 @@ export default class Section extends Component {
               key={task.id}
               onTaskForward={() => this.props.onTaskForward(task.id)}
               onTaskBackward={() => this.props.onTaskBackward(task.id)}
+              onTaskRemove={() => this.props.onTaskRemove(task.id)}
             ></Task>
           );
         })}
