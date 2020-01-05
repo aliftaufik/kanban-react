@@ -25,14 +25,14 @@ export default class Task extends Component {
         }
       >
         <h3 className="text-center text-xl">{this.props.task.title}</h3>
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-6">
           <button onClick={this.props.onTaskRemove}>
             <FontAwesomeIcon
               icon={faTrash}
-              className="hover:text-red-600 text-lg"
+              className="hover:text-red-600 text-md xs:text-lg"
             />
           </button>
-          <div className="w-1/5 flex justify-between text-2xl">
+          <div className="w-16 sm:w-20 flex justify-between text-xl xs:text-2xl">
             <button onClick={this.props.onTaskBackward}>
               <FontAwesomeIcon
                 icon={faArrowAltCircleLeft}

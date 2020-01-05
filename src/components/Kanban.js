@@ -4,8 +4,8 @@ import Section from "./Section";
 export default class Kanban extends Component {
   render() {
     return (
-      <div className="flex justify-between mt-8">
-        <div className="w-1/3 pr-3">
+      <div className="flex flex-col md:flex-row justify-between mt-8">
+        <div className="md:w-1/3 md:pr-3">
           <Section
             title="TODO"
             tasks={this.props.tasks.filter(task => task.status === "todo")}
@@ -14,7 +14,7 @@ export default class Kanban extends Component {
             onTaskRemove={this.props.onRemoveTask}
           ></Section>
         </div>
-        <div className="w-1/3 px-3">
+        <div className="md:w-1/3 md:px-3 mt-6 md:mt-0">
           <Section
             title="DOING"
             tasks={this.props.tasks.filter(task => task.status === "doing")}
@@ -23,7 +23,7 @@ export default class Kanban extends Component {
             onTaskRemove={this.props.onRemoveTask}
           ></Section>
         </div>
-        <div className="w-1/3 pl-3">
+        <div className="md:w-1/3 md:pl-3 mt-6 md:mt-0">
           <Section
             title="DONE"
             tasks={this.props.tasks.filter(task => task.status === "done")}
